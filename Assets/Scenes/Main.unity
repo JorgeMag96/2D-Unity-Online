@@ -310,6 +310,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8686683146633469168, guid: f9f07200c0f05a1428a2c460e0ee3cd9,
         type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8686683146633469168, guid: f9f07200c0f05a1428a2c460e0ee3cd9,
+        type: 3}
       propertyPath: sounds.Array.data[0].clip
       value: 
       objectReference: {fileID: 8300000, guid: cb2e6185c236644fd86471598e62b12b, type: 3}
@@ -10305,7 +10310,7 @@ TilemapCollider2D:
   m_GameObject: {fileID: 620262283}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: dec90304c5ca66641bdbb733683ea488, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -10931,7 +10936,7 @@ TilemapCollider2D:
   m_GameObject: {fileID: 844750168}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: dec90304c5ca66641bdbb733683ea488, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
