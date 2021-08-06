@@ -8,6 +8,7 @@ namespace Cainos.PixelArtTopDown_Basic
 
     public class PropsAltar : MonoBehaviour
     {
+        public GameObject teleportTo;
         public List<SpriteRenderer> runes;
         public float lerpSpeed;
 
@@ -16,6 +17,7 @@ namespace Cainos.PixelArtTopDown_Basic
 
         private void OnTriggerEnter2D(Collider2D other)
         {
+            other.gameObject.GetComponent<Transform>().position = teleportTo.GetComponent<Transform>().position;
             targetColor = new Color(1, 1, 1, 1);
         }
 
