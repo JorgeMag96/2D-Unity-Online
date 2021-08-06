@@ -5,7 +5,9 @@ using UnityEngine;
     public class CharacterController : NetworkBehaviour
     {
         public float speed;
-
+        private bool falling;
+        private float timeFalling;
+        
         private Animator animator;
         private Rigidbody2D rb;
 
@@ -16,6 +18,7 @@ using UnityEngine;
 
         private void Start()
         {
+            falling = false;
             animator = GetComponent<Animator>();
             rb = GetComponent<Rigidbody2D>();
         }
@@ -27,6 +30,20 @@ using UnityEngine;
 
         private void Update()
         {
+            falling = rb.gravityScale > 0;
+            
+            if (falling && timeFalling > .25f)
+            {
+                rb.gravityScale = 0;
+                falling = false;
+                timeFalling = 0;
+            }
+            else if (falling)
+            {
+                timeFalling += Time.deltaTime;
+            }
+
+
             if (!isLocalPlayer) return;
             
             HandleMovement();
