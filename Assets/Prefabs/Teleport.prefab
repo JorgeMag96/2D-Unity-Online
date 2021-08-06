@@ -288,9 +288,9 @@ GameObject:
   - component: {fileID: 7947911505737750448}
   - component: {fileID: 7947911505737750450}
   - component: {fileID: 5997224648939805555}
-  - component: {fileID: 2440844624711060802}
+  - component: {fileID: 7890402651402542643}
   m_Layer: 20
-  m_Name: PF Props Altar
+  m_Name: Teleport
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -388,7 +388,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.84837615, y: 0.65423536}
   m_EdgeRadius: 0
---- !u!114 &2440844624711060802
+--- !u!114 &7890402651402542643
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -397,15 +397,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 7947911505737750455}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7edd0f787bc46de479f0d96bba16e2a6, type: 3}
+  m_Script: {fileID: 11500000, guid: f2f5dd349de02b04e9b5cea95f5132e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runes:
-  - {fileID: 6250821296113964330}
-  - {fileID: 9183256227791019032}
-  - {fileID: 6868958710751573116}
-  - {fileID: 2128395779313173791}
-  lerpSpeed: 3
+  teleportTo: {fileID: 0}
+  runes: []
+  lerpSpeed: 0
 --- !u!1 &7947911505844789836
 GameObject:
   m_ObjectHideFlags: 0
