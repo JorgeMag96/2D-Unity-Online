@@ -1,24 +1,41 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class TeleportController : MonoBehaviour
 {
 
-    public Transform teleportTo;
-    public bool teleportationEnabled;
+    public GameObject teleportTo;
     public List<SpriteRenderer> runes;
     public float lerpSpeed;
 
+    private Vector3 teleportToPosition;
+    private string teleportToSortingLayer;
     private Color curColor;
     private Color targetColor;
 
+    private void Start()
+    {
+        if (teleportTo != null)
+        {
+            teleportToPosition = teleportTo.GetComponent<Transform>().position;
+            teleportToSortingLayer = teleportTo.GetComponent<SpriteRenderer>().sortingLayerName;
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D playerCollider)
     {
-        if (teleportTo != null && teleportationEnabled)
+        if (teleportTo != null)
         {
-            var playerTransform = playerCollider.gameObject.GetComponent<Transform>();
-            playerTransform.position = teleportTo.position;
+            var playerSortingLayer = playerCollider.gameObject.GetComponent<SpriteRenderer>().sortingLayerName;
+            if (gameObject.GetComponent<SpriteRenderer>().sortingLayerName.Equals(playerSortingLayer))
+            {
+                playerCollider.gameObject.GetComponent<SpriteRenderer>().sortingLayerName = teleportToSortingLayer;
+                var playerTransform = playerCollider.gameObject.GetComponent<Transform>();
+                playerTransform.position =
+                    new Vector3(teleportToPosition.x, teleportToPosition.y, playerTransform.position.z);
+            }
         }
         
         targetColor = new Color(1, 1, 1, 1);

@@ -2,7 +2,7 @@
 using Mirror;
 using UnityEngine;
 
-    public class CharacterController : NetworkBehaviour
+    public class PlayerController : NetworkBehaviour
     {
         public float speed;
         private bool falling;
@@ -49,6 +49,10 @@ using UnityEngine;
             HandleMovement();
             HandleAnimation();
             
+        }
+
+        private void FixedUpdate()
+        {
             rb.velocity = speed * dir;
         }
 

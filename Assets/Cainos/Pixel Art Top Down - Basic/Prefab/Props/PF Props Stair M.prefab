@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2927455932450297346}
-  - component: {fileID: 6223746544896227164}
   - component: {fileID: 6295016638095607784}
+  - component: {fileID: 166851473555850657}
   m_Layer: 0
   m_Name: Layer Trigger
   m_TagString: Untagged
@@ -32,20 +32,6 @@ Transform:
   m_Father: {fileID: 6075975974975622417}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6223746544896227164
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3256064665225810532}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f6d459c328bd694898a39e8ee677858, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  layer: Layer 1
-  sortingLayer: Layer 1
 --- !u!68 &6295016638095607784
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -64,6 +50,20 @@ EdgeCollider2D:
   m_Points:
   - {x: -0.7544733, y: 0.025878906}
   - {x: 0.7285948, y: 0.025878906}
+--- !u!114 &166851473555850657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3256064665225810532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db5efcfb170b416c9fc6c44fe8f5ecbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layer: Layer 1
+  sortingLayer: Layer 1
 --- !u!1 &6075975974917516961
 GameObject:
   m_ObjectHideFlags: 0
@@ -109,6 +109,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -120,6 +121,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -189,6 +191,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -200,6 +203,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -330,6 +334,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -341,6 +346,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -399,8 +405,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6075975976084253373}
-  - component: {fileID: 4442653431165992162}
   - component: {fileID: 4020305838961901639}
+  - component: {fileID: 5483416862595072521}
   m_Layer: 0
   m_Name: Layer Trigger
   m_TagString: Untagged
@@ -422,20 +428,6 @@ Transform:
   m_Father: {fileID: 6075975974975622417}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4442653431165992162
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6075975976084253374}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f6d459c328bd694898a39e8ee677858, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  layer: Layer 2
-  sortingLayer: Layer 2
 --- !u!68 &4020305838961901639
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -454,3 +446,17 @@ EdgeCollider2D:
   m_Points:
   - {x: -0.7544733, y: 0.025878906}
   - {x: 0.7285948, y: 0.025878906}
+--- !u!114 &5483416862595072521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6075975976084253374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db5efcfb170b416c9fc6c44fe8f5ecbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layer: Layer 2
+  sortingLayer: Layer 2

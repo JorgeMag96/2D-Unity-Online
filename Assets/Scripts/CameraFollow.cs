@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
@@ -6,6 +7,11 @@ public class CameraFollow : MonoBehaviour
     private Vector3 offset = new Vector3(0, 0, -10);
 
     public float smoothSpeed = 0.125f;
+    
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
 
     private void LateUpdate() {
         if(playerTransform != null)
