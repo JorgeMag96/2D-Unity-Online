@@ -7,6 +7,7 @@ public class TeleportController : MonoBehaviour
 {
 
     public GameObject teleportTo;
+    public int newSortingLayerOrder;
     public List<SpriteRenderer> runes;
     public float lerpSpeed;
 
@@ -28,11 +29,19 @@ public class TeleportController : MonoBehaviour
     {
         if (teleportTo != null)
         {
-            var playerSortingLayer = playerCollider.gameObject.GetComponent<SpriteRenderer>().sortingLayerName;
+            var player = playerCollider.gameObject;
+            var playerSortingLayer = player.GetComponent<SpriteRenderer>().sortingLayerName;
+            
             if (gameObject.GetComponent<SpriteRenderer>().sortingLayerName.Equals(playerSortingLayer))
             {
-                playerCollider.gameObject.GetComponent<SpriteRenderer>().sortingLayerName = teleportToSortingLayer;
-                var playerTransform = playerCollider.gameObject.GetComponent<Transform>();
+                // Set the player sorting layer to the destination sorting layer. (This is case we teleport to a different floor)
+                player.GetComponent<SpriteRenderer>().sortingLayerName = teleportToSortingLayer;
+                
+                // Set the player sorting layer order to the destination sorting layer order. (This is case we teleport outside of a building)
+                player.GetComponent<SpriteRenderer>().sortingOrder = newSortingLayerOrder;
+                
+                // Finally we teleport the player to the destination position.
+                var playerTransform = player.GetComponent<Transform>();
                 playerTransform.position =
                     new Vector3(teleportToPosition.x, teleportToPosition.y, playerTransform.position.z);
             }
