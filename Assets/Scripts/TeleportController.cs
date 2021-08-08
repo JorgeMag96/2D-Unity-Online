@@ -34,6 +34,9 @@ public class TeleportController : MonoBehaviour
             
             if (gameObject.GetComponent<SpriteRenderer>().sortingLayerName.Equals(playerSortingLayer))
             {
+                // Set the player layer to the destination layer.
+                player.layer = teleportTo.layer;
+                
                 // Set the player sorting layer to the destination sorting layer. (This is case we teleport to a different floor)
                 player.GetComponent<SpriteRenderer>().sortingLayerName = teleportToSortingLayer;
                 
