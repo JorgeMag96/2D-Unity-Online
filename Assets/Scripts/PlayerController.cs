@@ -4,21 +4,15 @@ using UnityEngine;
 
     public class PlayerController : NetworkBehaviour
     {
-        public float speed;
-        private bool falling;
-        private float timeFalling;
-        
+        public float speed = 3f;
+
         private Animator animator;
         private Rigidbody2D rb;
 
-        private Vector2 dir;
-        
-        private float xInput;
-        private float yInput;
+        private Vector2 movement;
 
         private void Start()
         {
-            falling = false;
             animator = GetComponent<Animator>();
             rb = GetComponent<Rigidbody2D>();
         }
@@ -30,66 +24,30 @@ using UnityEngine;
 
         private void Update()
         {
-            falling = rb.gravityScale > 0;
-            
-            if (falling && timeFalling > .25f)
-            {
-                rb.gravityScale = 0;
-                falling = false;
-                timeFalling = 0;
-            }
-            else if (falling)
-            {
-                timeFalling += Time.deltaTime;
-            }
-
-
             if (!isLocalPlayer) return;
             
-            HandleMovement();
+            ProcessInputs();
             HandleAnimation();
-            
         }
 
         private void FixedUpdate()
         {
-            rb.velocity = speed * dir;
+            if (!isLocalPlayer) return;
+            
+            rb.MovePosition(rb.position + movement * speed * Time.fixedDeltaTime);
         }
 
-        private void HandleMovement()
+        private void ProcessInputs()
         {
-            dir = Vector2.zero;
-            
-            xInput = Input.GetAxisRaw("Horizontal");
-            yInput = Input.GetAxisRaw("Vertical");
-            
-            dir.x = xInput;
-            dir.y = yInput;
-                
-            dir.Normalize();
+            movement.x = Input.GetAxisRaw("Horizontal");
+            movement.y = Input.GetAxisRaw("Vertical");
         }
 
         private void HandleAnimation()
         {
-            if (dir.x < 0)
-            {
-                animator.SetInteger("Direction", 3);
-            }
-            else if (dir.x > 0)
-            {
-                animator.SetInteger("Direction", 2);
-            }
-                
-            if (dir.y > 0)
-            {
-                animator.SetInteger("Direction", 1);
-            }
-            else if (dir.y < 0)
-            {
-                animator.SetInteger("Direction", 0);
-            }
-            
-            animator.SetBool("IsMoving", dir.magnitude > 0);
+            animator.SetFloat("Horizontal", movement.x);
+            animator.SetFloat("Vertical", movement.y);
+            animator.SetFloat("Speed", movement.sqrMagnitude);
         }
         
     }
