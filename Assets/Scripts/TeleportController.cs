@@ -39,6 +39,11 @@ public class TeleportController : MonoBehaviour
                 
                 // Set the player sorting layer to the destination sorting layer. (This is case we teleport to a different floor)
                 player.GetComponent<SpriteRenderer>().sortingLayerName = teleportToSortingLayer;
+                var childrenSprites = player.GetComponentsInChildren<SpriteRenderer>();
+                foreach ( var childrenSprite in childrenSprites)
+                {
+                    childrenSprite.sortingLayerName = teleportToSortingLayer;
+                }
                 
                 // Set the player sorting layer order to the destination sorting layer order. (This is case we teleport outside of a building)
                 player.GetComponent<SpriteRenderer>().sortingOrder = newSortingLayerOrder;
